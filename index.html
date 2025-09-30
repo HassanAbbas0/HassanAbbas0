@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassan Abbas Azad Restaurant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #8B0000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #8B0000;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #A52A2A;
+        }
+        
+        .food-gallery {
+            margin: 40px 0;
+        }
+        
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #8B0000;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            height: 250px;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .img-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(139, 0, 0, 0.8);
+            color: white;
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .img-caption {
+            transform: translateY(0);
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .contact-info h2 {
+            color: #8B0000;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            margin: 15px 0;
+        }
+        
+        .info-item i {
+            margin-right: 10px;
+            color: #8B0000;
+        }
+        
+        .social-share {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .social-share h2 {
+            color: #8B0000;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+        
+        .facebook { background: #3b5998; }
+        .whatsapp { background: #25D366; }
+        .twitter { background: #1DA1F2; }
+        
+        .special-offer {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .offer-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            max-height: 300px;
+        }
+        
+        .offer-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .offer-content {
+            flex: 1;
+        }
+        
+        .offer-content h2 {
+            color: #8B0000;
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                height: 50vh;
+            }
+            
+            .special-offer {
+                flex-direction: column;
+            }
+            
+            .offer-img {
+                width: 100%;
+                max-height: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                height: 40vh;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Hassan Abbas Azad Restaurant</h1>
+            <p>Delicious food served with love</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Welcome to Our Restaurant</h2>
+                <p>Experience the finest cuisine in town</p>
+                <a href="#contact" class="btn">Contact Us</a>
+            </div>
+        </section>
+        
+        <section class="food-gallery">
+            <h2 class="gallery-title">Our Delicious Dishes</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Healthy Salad" class="gallery-img">
+                    <div class="img-caption">Fresh Garden Salad</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Delicious Burger" class="gallery-img">
+                    <div class="img-caption">Signature Burger</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pasta Dish" class="gallery-img">
+                    <div class="img-caption">Gourmet Pasta</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Delicious Dessert" class="gallery-img">
+                    <div class="img-caption">Decadent Desserts</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Pizza" class="gallery-img">
+                    <div class="img-caption">Wood-fired Pizza</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Steak Dish" class="gallery-img">
+                    <div class="img-caption">Premium Steak</div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="special-offer">
+            <div class="offer-img">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Special Dish">
+            </div>
+            <div class="offer-content">
+                <h2>Today's Special</h2>
+                <p>Enjoy our chef's special dish - a delicious combination of fresh ingredients and authentic spices. Prepared with care and served with love.</p>
+                <p>Only available today at 20% discount!</p>
+                <a href="#contact" class="btn">Order Now</a>
+            </div>
+        </section>
+        
+        <section class="contact-info" id="contact">
+            <h2>Contact Information</h2>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <span>Email: hassan114379@gmail.com</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-phone"></i>
+                <span>Phone: 0314 5112880</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Visit us at our location for a memorable dining experience</span>
+            </div>
+        </section>
+        
+        <section class="social-share">
+            <h2>Share on Social Media</h2>
+            <p>Help others discover our restaurant by sharing this page</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/hassan-abbas-azad-restaurant" class="social-link facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i> Share on Facebook
+                </a>
+                <a href="https://api.whatsapp.com/send?text=Check%20out%20Hassan%20Abbas%20Azad%20Restaurant%20https://example.com/hassan-abbas-azad-restaurant" class="social-link whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Share on WhatsApp
+                </a>
+                <a href="https://twitter.com/intent/tweet?text=Check%20out%20Hassan%20Abbas%20Azad%20Restaurant&url=https://example.com/hassan-abbas-azad-restaurant" class="social-link twitter" target="_blank">
+                    <i class="fab fa-twitter"></i> Share on Twitter
+                </a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Hassan Abbas Azad Restaurant. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Current URL for sharing
+        const currentUrl = encodeURIComponent(window.location.href);
+        const shareText = encodeURIComponent("Check out Hassan Abbas Azad Restaurant - Delicious food served with love");
+        
+        // Update social share links with current URL
+        document.querySelector('.facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+        document.querySelector('.whatsapp').href = `https://api.whatsapp.com/send?text=${shareText}%20${currentUrl}`;
+        document.querySelector('.twitter').href = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
+    </script>
+</body>
+</html>
